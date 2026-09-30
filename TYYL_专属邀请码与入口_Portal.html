@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYYL 专属通道 | 邀请码：777555</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s infinite ease-in-out',
+                        'float': 'float 4s infinite ease-in-out',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 0.6, transform: 'scale(1)' },
+                            '50%': { opacity: 1, transform: 'scale(1.03)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Inter Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        /* Gradient backdrop grid effect */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+        /* Custom scrollbar for preview frame area */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
+
+    <!-- Glowing background blur circles -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-tr from-indigo-600/30 via-purple-600/20 to-pink-500/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+    <div class="fixed bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none -z-10"></div>
+    <div class="absolute inset-0 bg-grid-pattern pointer-events-none -z-10 opacity-60"></div>
+
+    <!-- Floating Toast Notification -->
+    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 transform -translate-y-16 opacity-0 transition-all duration-300 ease-out pointer-events-none">
+        <div class="flex items-center gap-3 bg-slate-900/95 border border-indigo-500/50 text-indigo-200 px-5 py-3 rounded-2xl shadow-2xl backdrop-blur-md text-sm font-medium">
+            <span class="flex h-3 w-3 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            </span>
+            <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+            <span id="toastMessage">邀请码已复制：777555</span>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="w-full max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/20 text-white font-black text-xl">
+                T
+            </div>
+            <div>
+                <h1 class="font-bold text-lg text-white leading-tight">TYYL <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">VIP Access</span></h1>
+                <p class="text-xs text-slate-400">官方专用入口导航页</p>
+            </div>
+        </div>
+
+        <button onclick="toggleDeployModal(true)" class="flex items-center gap-2 text-xs text-slate-400 hover:text-indigo-300 bg-slate-900/80 hover:bg-slate-800 border border-slate-800 px-3.5 py-2 rounded-xl transition">
+            <i class="fa-solid fa-cloud-arrow-up text-indigo-400"></i>
+            <span>部署说明</span>
+        </button>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="w-full max-w-5xl mx-auto px-4 py-6 flex-1 flex flex-col items-center gap-8">
+
+        <!-- Banner Announcement Card -->
+        <div class="w-full text-center space-y-4 max-w-2xl mt-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-medium animate-float">
+                <i class="fa-solid fa-shield-halved text-indigo-400"></i>
+                <span>专享绿道 · 请在注册或登录时填写邀请码</span>
+            </div>
+            
+            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                欢迎访问 <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">TYYL App</span>
+            </h2>
+            <p class="text-sm sm:text-base text-slate-400 leading-relaxed">
+                请先保存并复制下方的独家专属邀请码，随后点击下方按钮一键前往平台。
+            </p>
+        </div>
+
+        <!-- Prominent Code Showcase Card -->
+        <div class="w-full max-w-xl bg-slate-900/90 border border-slate-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl relative group hover:border-indigo-500/40 transition-all duration-300">
+            <!-- Subtle Card Inner Glow -->
+            <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+            <div class="flex flex-col items-center gap-4 text-center relative z-10">
+                <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold flex items-center gap-1.5">
+                    <i class="fa-solid fa-key text-amber-400"></i> 您的专属邀请码
+                </span>
+
+                <!-- Giant Code Box -->
+                <div class="w-full py-4 px-6 bg-slate-950/80 border border-slate-800 rounded-2xl flex items-center justify-between gap-4 shadow-inner">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-ticket text-2xl text-indigo-400"></i>
+                        <span id="inviteCode" class="text-3xl sm:text-4xl font-mono font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-white to-purple-300">
+                            777555
+                        </span>
+                    </div>
+                    
+                    <button onclick="copyInviteCode()" class="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm px-4 py-2.5 rounded-xl transition shadow-lg shadow-indigo-600/30 active:scale-95">
+                        <i class="fa-regular fa-copy"></i>
+                        <span class="hidden sm:inline">复制</span>
+                    </button>
+                </div>
+
+                <!-- Action Button Cluster -->
+                <div class="w-full flex flex-col sm:flex-row gap-3 pt-2">
+                    <a href="https://tyyl.app" target="_blank" rel="noopener noreferrer" 
+                       class="flex-1 bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold py-3.5 px-6 rounded-xl shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 transition hover:shadow-indigo-500/40 active:scale-[0.98]">
+                        <span>直接前往 tyyl.app</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+
+                    <button onclick="copyInviteCode()" 
+                            class="sm:w-auto bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700/80 font-medium py-3.5 px-5 rounded-xl flex items-center justify-center gap-2 transition active:scale-[0.98]">
+                        <i class="fa-solid fa-copy text-indigo-400"></i>
+                        <span>复制邀请码</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Preview Browser Container -->
+        <div id="previewContainer" class="w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col transition-all duration-300">
+            
+            <!-- Simulated Browser Header Bar -->
+            <div class="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+                </div>
+
+                <!-- Fake URL Address Bar -->
+                <div class="flex-1 max-w-md bg-slate-900 border border-slate-800 rounded-lg py-1 px-3 flex items-center justify-center gap-2 text-xs text-slate-400 font-mono">
+                    <i class="fa-solid fa-lock text-emerald-400 text-[10px]"></i>
+                    <span class="truncate">https://tyyl.app</span>
+                </div>
+
+                <!-- Browser Action Buttons -->
+                <div class="flex items-center gap-2">
+                    <button onclick="reloadIframe()" title="刷新页面" class="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition">
+                        <i class="fa-solid fa-rotate-right text-xs"></i>
+                    </button>
+                    <button onclick="toggleFullscreen()" title="放大窗口" class="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition">
+                        <i class="fa-solid fa-expand text-xs"></i>
+                    </button>
+                    <a href="https://tyyl.app" target="_blank" title="新标签页打开" class="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition">
+                        <i class="fa-solid fa-external-link text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Frame Notice Banner -->
+            <div class="bg-indigo-950/40 border-b border-indigo-900/40 px-4 py-2.5 flex items-center justify-between text-xs text-indigo-200">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-circle-info text-indigo-400"></i>
+                    <span>下方为页面即时预览。如果画面被拦截或加载为空白，系目标网站开启了同源防嵌入保护。</span>
+                </div>
+                <a href="https://tyyl.app" target="_blank" class="underline hover:text-white font-medium shrink-0 ml-2">新窗口打开 &rarr;</a>
+            </div>
+
+            <!-- Embedded Iframe -->
+            <div class="relative w-full h-[480px] sm:h-[600px] bg-slate-950">
+                <iframe id="targetIframe" src="https://tyyl.app" class="w-full h-full border-0" title="TYYL App Preview" loading="lazy"></iframe>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="w-full border-t border-slate-800/80 bg-slate-950/80 mt-12 py-6">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <div>
+                &copy; <span id="year"></span> TYYL Portal. All rights reserved.
+            </div>
+            <div class="flex items-center gap-4">
+                <span>邀请码：<strong class="text-slate-300 font-mono">777555</strong></span>
+                <span>•</span>
+                <a href="https://tyyl.app" target="_blank" class="hover:text-indigo-400 transition">目标官网：tyyl.app</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Deployment Guide Modal Container -->
+    <div id="deployModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 shadow-2xl relative transform scale-95 transition-transform duration-300" id="modalContent">
+            
+            <button onclick="toggleDeployModal(false)" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div class="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                    <i class="fa-solid fa-rocket text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white">免费部署到托管平台</h3>
+                    <p class="text-xs text-slate-400">将本网页托管并绑定你喜欢的免费域名</p>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-xs text-slate-300 py-2">
+                <div class="bg-slate-950 p-3.5 rounded-2xl border border-slate-800">
+                    <h4 class="font-semibold text-indigo-300 mb-1 flex items-center gap-2">
+                        <i class="fa-brands fa-github text-sm"></i> GitHub Pages (免费域名: yourname.github.io)
+                    </h4>
+                    <p class="text-slate-400 leading-relaxed">创建新的 GitHub 仓库，将此文件命名为 <code class="text-amber-300 bg-slate-900 px-1 py-0.5 rounded">index.html</code> 上传，在仓库 Settings &rarr; Pages 中启用即可。</p>
+                </div>
+
+                <div class="bg-slate-950 p-3.5 rounded-2xl border border-slate-800">
+                    <h4 class="font-semibold text-purple-300 mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-sm"></i> Vercel (免费域名: project.vercel.app)
+                    </h4>
+                    <p class="text-slate-400 leading-relaxed">登录 Vercel，将代码文件夹拖拽上传至 Deploy 区域，几秒内即可自动生成上线链接。</p>
+                </div>
+
+                <div class="bg-slate-950 p-3.5 rounded-2xl border border-slate-800">
+                    <h4 class="font-semibold text-amber-300 mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-cloud text-sm"></i> Cloudflare Pages
+                    </h4>
+                    <p class="text-slate-400 leading-relaxed">进入 Cloudflare 控制台 &rarr; Workers & Pages &rarr; 创建 Pages 项目，直接拖拽源码文件夹完成快速部署。</p>
+                </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-800 flex justify-end">
+                <button onclick="toggleDeployModal(false)" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-4 py-2 rounded-xl transition">
+                    已了解，关闭
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Copy Invitation Code Function with Fallback
+        function copyInviteCode() {
+            const code = "777555";
+            
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(code)
+                    .then(() => triggerToast("邀请码已成功复制：777555"))
+                    .catch(() => fallbackCopy(code));
+            } else {
+                fallbackCopy(code);
+            }
+        }
+
+        // Executive fallback copy function for strict iframe/unsecure environments
+        function fallbackCopy(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                triggerToast("邀请码已成功复制：777555");
+            } catch (err) {
+                triggerToast("复制失败，请手动选择复制：777555");
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        // Toast Notification System
+        let toastTimeout;
+        function triggerToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message;
+            toast.classList.remove('-translate-y-16', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('-translate-y-16', 'opacity-0');
+            }, 3000);
+        }
+
+        // Iframe Reload Helper
+        function reloadIframe() {
+            const iframe = document.getElementById('targetIframe');
+            iframe.src = iframe.src;
+            triggerToast("预览窗口已重新刷新");
+        }
+
+        // Fullscreen Toggle for Preview Window
+        function toggleFullscreen() {
+            const container = document.getElementById('previewContainer');
+            if (!document.fullscreenElement) {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) { /* Safari */
+                    container.webkitRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Modal Controls
+        function toggleDeployModal(show) {
+            const modal = document.getElementById('deployModal');
+            const content = document.getElementById('modalContent');
+            
+            if (show) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('opacity-100', 'pointer-events-auto');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            } else {
+                modal.classList.remove('opacity-100', 'pointer-events-auto');
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                content.classList.remove('scale-100');
+                content.classList.add('scale-95');
+            }
+        }
+    </script>
+</body>
+</html>
